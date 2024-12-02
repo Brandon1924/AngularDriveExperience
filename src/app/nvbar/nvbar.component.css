@@ -1,0 +1,81 @@
+.topnav {
+    background-color: black;
+    overflow: hidden;
+  }
+  
+  .home-nav {
+    flex: auto;
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  
+  .home-nav img {
+    height: 40px; /* Ajusta la altura de la imagen */
+    width: auto; /* Mantiene la proporción */
+  }
+  
+  .bar-nav {
+    float: right;
+    color: white;
+    text-align: center;
+    padding: 15px 16px;
+    text-decoration: none;
+    font-size: 12px;
+    margin-top: 10px;
+    font-size: 15px;
+  }
+  
+  .bar-nav:hover {
+    text-decoration: underline; /* Subraya el texto al pasar el mouse */
+  }
+  .container {
+    float: left;
+    width: 100%;
+    color: #f1f1f1;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .image-wrapper {
+    width: calc(33% - 10px);
+    position: relative;
+    margin-right: 10px;
+  }
+  
+  .image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-weight: bold;
+  }
+  
+  .image-wrapper:hover .overlay {
+    opacity: 1;
+  }
+  
+  .image-wrapper:hover .image {
+    transform: scale(0.9);
+    transition: transform 0.6s ease;
+  }
+  

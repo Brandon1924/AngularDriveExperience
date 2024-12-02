@@ -1,0 +1,207 @@
+
+.main-image {
+    width: 100%;
+    height: 700px;
+  }
+
+
+/****************** Diseño de las imágenes en la página ******************/
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .row > .column {
+    padding: 0 8px;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .container {
+    float: left;
+    width: 100%;
+    color: #f1f1f1;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Asegura que los elementos se ajusten */
+  }
+  
+  .image-wrapper {
+    width: calc(33% - 10px); /* Restar el margen del 33% */
+    position: relative;
+    margin-right: 10px; /* Espacio entre imágenes */
+  }
+  
+  .image {
+    width: 100%; /* Asegúrate de que la imagen ocupe todo el contenedor */
+    height: 500px; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    color: white; /* Color del texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3;
+    font-weight: bold;
+  }
+  
+  .image-wrapper:hover .overlay {
+    opacity: 1; /* Muestra el overlay al pasar el ratón */
+  }
+  
+  /* Efecto al pasar el mouse (zoom y mostrar overlay) */
+  .image-wrapper:hover .image {
+    transform: scale(0.9); /* Escala la imagen al 90% */
+    transition: transform 0.6s ease; /* Transición suave para el zoom */
+  }
+
+
+/****************************************************/
+  .we-are{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(37, 37, 37);
+    padding-bottom: 30px;
+  }
+  
+  .we-are h1{
+    padding-left: 70px;
+    padding-top: 50px;
+    color: white;
+    font-size: 40px;
+    margin-bottom: 0px;
+  }
+  
+  .we-are h2{
+    padding-left: 70px;
+    padding-right: 100px;
+    color: white;
+  }
+  
+  .we-are p{
+    padding-left: 70px;
+    padding-right: 40px;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .img-index-midle{
+    width: 100%;
+    height: 700px;
+    margin-top: 30px;
+  }
+  /*****************************************************************************/
+
+  .container-schedule {
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-image: url("/assets/images/img-horario.jpg");
+  }
+  .img-sh{
+    position: relative;
+  }
+  
+  .schedule{
+    width: 100%;
+    height: 500px;
+    margin-top: 40px;
+  }
+  
+  .schedule h2{
+    padding-left: 100px;
+    color: white;
+    padding-bottom: 30px;
+  }
+  
+  table {
+    width: 300px;
+    border-collapse: collapse;
+    margin-left: 100px;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: white;
+  }
+  
+
+
+
+
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .image-wrapper {
+      width: 100%;
+      margin-right: 0;
+    }
+  
+    .schedule {
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .home-nav, .bar-nav {
+      font-size: 14px;
+    }
+  
+    .we-are h1 {
+      font-size: 30px;
+    }
+  
+    .img-index-midle {
+    
+      height: 400px;
+    }
+  
+    .container-schedule {
+      flex-direction: column;
+    }
+  
+    table {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container-contactanos-left,
+    .container-contactanos-midle,
+    .container-contactanos-right {
+      flex: 1 1 100%;
+    }
+  
+    footer {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    .home-nav, .bar-nav {
+      font-size: 12px;
+    }
+  
+    .we-are h1 {
+      font-size: 25px;
+    }
+  }
+  

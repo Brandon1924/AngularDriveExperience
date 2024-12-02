@@ -1,0 +1,49 @@
+/* Center website */
+.main {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .row { /*fila*/
+    display: flex;             /* Usamos Flexbox */
+    flex-wrap: wrap;           /* Permite que los elementos se ajusten a nuevas líneas cuando no hay espacio */
+    gap: 20px;                 /* Espacio de 20px entre cada columna */
+    justify-content: center;   /* Centra los elementos de forma horizontal */
+  }
+  
+  /*Crea cuatro columnas iguales que floten una al lado de la otra.*/
+  .column {
+    flex: 1 1 calc(25% - 20px); /* Toma 1/3 del ancho, pero considerando el gap */
+    min-width: 280px;           /* Para asegurarnos de que las columnas no sean demasiado pequeñas en pantallas pequeñas */
+  }
+  
+  
+  /* Content */
+  .content {
+    border: 1px solid #ccc;    /* Agrega borde para distinguir el contenido */
+    padding: 10px;              /* Espaciado interno */
+    background-color: #f9f9f9; /* Fondo para hacer más visible el contenido */
+  }
+  
+  /* Estilo de los botones */
+  .btn {
+    border: none;
+    outline: none;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .btn:hover {
+    background-color: lightgray;
+    color: black;
+  }
+  
+  .btn.active {
+    background-color: #666;
+    color: white;
+  }

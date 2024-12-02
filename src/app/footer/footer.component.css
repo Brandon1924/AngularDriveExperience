@@ -1,0 +1,36 @@
+footer {
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color: black;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 13px;
+  }
+  
+  footer h2 {
+    color: white;
+    padding-left: 50px;
+  }
+  
+  footer p {
+    padding-left: 50px;
+  }
+  
+  .container-contactanos {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .container-contactanos-left,
+  .container-contactanos-midle,
+  .container-contactanos-right {
+    flex: 3;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
