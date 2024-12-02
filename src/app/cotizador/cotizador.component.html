@@ -3,75 +3,88 @@
 
 <div class="car-container">
   <h2>Detalles del Auto</h2>
-  <img id="carImage" style="width: 30%" />
-  <p><b>Precio:</b> <span id="carPrice"></span></p>
-  <p><b>Año:</b> <span id="carYear"></span></p>
+  <img id="carImage" [src]="auto.imagen" alt="Imagen del Auto" style="width: 30%" />
+  <p><b>Marca:</b> <span>{{ auto.marca }}</span></p>
+  <p><b>Precio:</b> <span>{{ auto.precio | currency:'USD' }}</span></p> 
+  <p><b>Año:</b> <span>{{ auto.anio }}</span></p>
 </div>
 
 <div class="container">
   <div class="left-column">
     <h2>Configura tu crédito</h2>
-    <p>Enganche mínimo de $70,000</p>
+    <p><b>Enganche mínimo:</b> {{ auto.precio * 0.30 | currency:'USD' }}</p>
+    <p><b>Enganche máximo:</b> {{ auto.precio * 0.70 | currency:'USD' }}</p>
     <div class="Form">
       <form id="formEnganche">
         <label for="enganche">Enganche</label>
         <input
-          type="text"
+          type="number"
           id="enganche"
           name="enganche"
+          [(ngModel)]="enganche"
           placeholder="Ingrese el enganche deseado"
+          min="100000"
+          required
         />
-
+        <br><br>
         <label for="plazoSelect">Mensualidades</label>
-        <select id="plazoSelect" name="plazo">
+        <select id="plazoSelect" [(ngModel)]="plazo" name="plazo" required>
           <option value="24meses">24 MESES</option>
           <option value="36meses">36 MESES</option>
           <option value="48meses">48 MESES</option>
         </select>
 
         <label for="aseguradora">Aseguradora</label>
-        <select name="aseguradora" id="aseguradora">
-          <option value="qualitas">QUALITAS: $14,000</option>
+        <select name="aseguradora" id="aseguradora" [(ngModel)]="aseguradora">
+          <option value="qualitas">QUALITAS: $20,333</option>
           <option value="gnp">GNP: $12,000</option>
         </select>
 
-        <input type="submit" value="Generar" />
+        <label for="seguro">Seguro Financiado</label>
+        <select name="seguro" id="seguro" [(ngModel)]="financiarSeguro">
+          <option value="si">Si</option>
+          <option value="no">No</option>
+        </select>
+
+        <input type="button" value="Generar" (click)="generarCotizacion()" class="btn-generar"/>
       </form>
     </div>
   </div>
+
   <div class="right-column">
     <div class="nav">
       <p class="text-nav-right-column">
         <span>MENSUALIDAD:</span>
-        <span></span>
-      </p>
+        <span>{{ mensualidad | currency:'USD' }}</span>
+  
     </div>
+
     <h3><b>RESUMEN DE COTIZADOR</b></h3>
     <p class="text-bold-right-column">
       <span class="label"><b>MONTO A FINANCIAR</b>:</span>
-      <span class="result" id="montoFinanciar"></span>
+      <span class="result">{{ montoFinanciar | currency:'USD' }}</span>
     </p>
     <hr />
     <p class="text-bold-right-column">
       <span class="label"><b>PAGO INICIAL</b>: </span>
-      <span class="result" id="pagoInicial">-</span>
+      <span class="result">{{ pagoInicial | currency:'USD' }}</span>
     </p>
     <p class="text-right-column">
       <span class="label">Comisión por apertura:</span>
-      <span class="result" id="comisionApertura">-</span>
+      <span class="result">{{ comisionApertura | currency:'USD' }}</span>
     </p>
     <p class="text-right-column">
       <span class="label">Seguro de contado: </span>
-      <span class="result" id="seguroContado">-</span>
+      <span class="result">{{ seguroContado | currency:'USD' }}</span>
     </p>
     <hr />
     <p class="text-right-column">
       <span class="label">Tasa de interés:</span>
-      <span class="result" id="tasaInteres">-</span>
+      <span class="result">{{ tasaInteres * 100 }}%</span>
     </p>
     <p class="text-right-column">
       <span class="label">Plazo:</span>
-      <span class="result" id="plazoLabel">-</span>
+      <span class="result">{{ plazoLabel }}</span>
     </p>
   </div>
 </div>
