@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalogo',
@@ -6,27 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./catalogo.component.css']
 })
 export class CatalogoComponent {
-  // Array de vehículos
-  vehículos = [
-    {
-      id: 1,
-      marca: 'Toyota',
-      modelo: 'Corolla',
-      año: 2022,
-      precioLista: 25000,
-      fotoLateralUrl: 'assets/images/toyota-corolla.jpg'  // Asegúrate de tener esta ruta de imagen correctamente configurada
-    },
-    {
-      id: 2,
-      marca: 'Honda',
-      modelo: 'Civic',
-      año: 2021,
-      precioLista: 23000,
-      fotoLateralUrl: 'assets/images/honda-civic.jpg'  // Asegúrate de tener esta ruta de imagen correctamente configurada
-    }
-  ];
+  
+  // Definir los vehículos como objetos con sus propiedades
+  car1 = { id: 1, marca: 'Auto', precio: 405900, anio: 2010, imagen: '../../../../assets/images/auto1.png'};
+  car2 = { id: 2, marca: 'Auto2', precio: 11, anio: 2022, imagen: '../../../../assets/images/auto2.png'};
+  car3 = { id: 3, marca: 'Auto3', precio: 320000, anio: 2021, imagen: '../../../../assets/images/auto3.png'};
+  car4 = { id: 3, marca: 'Auto4', precio: 120000, anio: 2021, imagen: '../../../../assets/images/auto4.png'};
+  
+  constructor(private router: Router) { }
 
-  constructor() { }
+  redirectToPage(car : any) {
+    this.router.navigate(['/cotizador'], { queryParams: { 
+      id: car.id, 
+      marca: car.marca, 
+      precio: car.precio, 
+      anio: car.anio,
+      imagen: car.imagen // Asegurándote de pasar la imagen correctamente
+    } });
+  }
 
   ngOnInit(): void {
     // Aquí puedes cargar los datos de vehículos si provienen de un servicio o una API

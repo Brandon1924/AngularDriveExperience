@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NvbarComponent } from './nvbar/nvbar.component';
 import { MainContentComponent } from './main-content/main-content.component';
@@ -15,6 +15,8 @@ import { ButtonModule } from 'primeng/button';
 import { CotizadorComponent } from './cotizador/cotizador.component';
 import { RegistroComponent } from './registro/registro.component';
 import { PlanesComponent } from './planes/planes.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +35,8 @@ import { PlanesComponent } from './planes/planes.component';
     AppRoutingModule,
     RouterModule.forRoot([]),
     CheckboxModule,
-    ButtonModule
-    
+    ButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
