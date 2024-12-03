@@ -1,7 +1,7 @@
 
 .main-image {
     width: 100%;
-    height: 700px;
+    height: auto;
   }
 
 
@@ -39,7 +39,7 @@
   
   .image {
     width: 100%; /* Asegúrate de que la imagen ocupe todo el contenedor */
-    height: 500px; /* Mantiene la proporción de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
     object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
   }
   
@@ -73,59 +73,50 @@
 /****************************************************/
   .we-are{
     width: 100%;
-    height: 300px;
+    height: auto;
     background-color: rgb(37, 37, 37);
-    padding-bottom: 30px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: white;
+    box-sizing: border-box;
   }
   
   .we-are h1{
-    padding-left: 70px;
     padding-top: 50px;
-    color: white;
     font-size: 40px;
-    margin-bottom: 0px;
-  }
-  
-  .we-are h2{
-    padding-left: 70px;
-    padding-right: 100px;
-    color: white;
   }
   
   .we-are p{
-    padding-left: 70px;
-    padding-right: 40px;
     font-size: 20px;
-    color: white;
+    margin: auto;
+  }
+
+  .container-medio {
+    display: flex;               
+    justify-content: center;     
+    align-items: center;         
+    height: auto;       
   }
   
-  .img-index-midle{
-    width: 100%;
-    height: 700px;
+  .img-index-midle {
+    width: 100%;                 
+    height: auto;                
     margin-top: 30px;
   }
+  
+
   /*****************************************************************************/
 
   .container-schedule {
-    display: flex;
+    background-image: url("/assets/images/img-horario.jpg"); 
     width: 100%;
-    height: auto;
-    background-image: url("/assets/images/img-horario.jpg");
-  }
-  .img-sh{
-    position: relative;
-  }
-  
-  .schedule{
-    width: 100%;
-    height: 500px;
-    margin-top: 40px;
   }
   
   .schedule h2{
     padding-left: 100px;
     color: white;
     padding-bottom: 30px;
+    padding-top: 40px;
   }
   
   table {
@@ -150,6 +141,9 @@
       flex-direction: column;
     }
   
+    .container-schedule{
+      width: 100%;
+    }
     .image-wrapper {
       width: 100%;
       margin-right: 0;
@@ -167,11 +161,6 @@
   
     .we-are h1 {
       font-size: 30px;
-    }
-  
-    .img-index-midle {
-    
-      height: 400px;
     }
   
     .container-schedule {
@@ -203,5 +192,23 @@
     .we-are h1 {
       font-size: 25px;
     }
+
+
+  .we-are p {
+    font-size: 4vw;
+    max-width: 90%; /* Más ancho en pantallas más pequeñas */
   }
+}
+
+@media screen and (max-width: 480px) {
+  .we-are h1 {
+    font-size: 8vw; /* Ajusta aún más el tamaño del texto en dispositivos muy pequeños */
+    padding-top: 20px;
+  }
+
+  .we-are p {
+    font-size: 5vw;
+  }
+}
+  
   
