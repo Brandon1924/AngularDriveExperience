@@ -15,6 +15,7 @@ import { ButtonModule } from 'primeng/button';
 import { CotizadorComponent } from './cotizador/cotizador.component';
 import { RegistroComponent } from './registro/registro.component';
 import { PlanesComponent } from './planes/planes.component';
+import { CotizacionService } from './services/cotizacion.service';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { PlanesComponent } from './planes/planes.component';
     ButtonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CotizacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

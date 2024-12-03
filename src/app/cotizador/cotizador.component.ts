@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CotizacionService } from '../services/cotizacion.service';  // Asegúrate de tener la ruta correcta
+
 
 @Component({
   selector: 'app-cotizador',
@@ -23,7 +25,7 @@ export class CotizadorComponent {
   financiarSeguro: string = 'no'; // Para saber si el seguro será financiado
 
   // Constructor que recibe el auto pasado por queryParams
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private cotizacionService: CotizacionService) {
     this.route.queryParams.subscribe(params => {
       this.auto = {
         id: params['id'],
@@ -109,5 +111,26 @@ export class CotizadorComponent {
     const tasaMensual = this.tasaInteres / 12;
     const totalADevolver = this.montoFinanciar + this.comisionApertura;
     this.mensualidad = totalADevolver * tasaMensual / (1 - Math.pow(1 + tasaMensual, -plazoNumerico));
+  }
+
+  guardarCotizacion(): void {
+  const cotizacion = {
+    auto: this.auto,
+    enganche: this.enganche,
+    plazo: this.plazo,
+    montoFinanciar: this.montoFinanciar,
+    pagoInicial: this.pagoInicial,
+    comisionApertura: this.comisionApertura,
+    seguroContado: this.seguroContado,
+    tasaInteres: this.tasaInteres,
+    plazoLabel: this.plazoLabel,
+    mensualidad: this.mensualidad
+  };
+
+  // Guardar la cotización usando el servicio
+  this.cotizacionService.guardarCotizacion(cotizacion);
+
+  // Mostrar mensaje de éxito
+  alert('Cotización guardada exitosamente');
   }
 }

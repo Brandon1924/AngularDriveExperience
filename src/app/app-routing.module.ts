@@ -15,7 +15,7 @@ const routes: Routes = [
   {path : 'cotizador', component : CotizadorComponent},    
   {path : 'registro', component : RegistroComponent},    
   {path : 'planes', component : PlanesComponent},
-  { path: 'cotizador/:id', component: CotizadorComponent },
+  {path: 'cotizador/:id', component: CotizadorComponent },
 
 ]
 

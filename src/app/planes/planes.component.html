@@ -1,3 +1,24 @@
 <app-nvbar></app-nvbar>
 <h2 style="text-align: center">Mis Planes</h2>
+
+<!-- Mostrar mensaje si no hay cotizaciones guardadas -->
+<div *ngIf="cotizaciones.length === 0">
+  <p>No tienes cotizaciones guardadas.</p>
+</div>
+
+<!-- Iterar sobre las cotizaciones y mostrarlas -->
+<div *ngFor="let cotizacion of cotizaciones; let i = index">
+  <div class="cotizacion">
+    <p><b>Marca:</b> {{ cotizacion.auto.marca }}</p>
+    <p><b>Precio:</b> {{ cotizacion.auto.precio | currency:'USD' }}</p>
+    <p><b>Enganche:</b> {{ cotizacion.enganche | currency:'USD' }}</p>
+    <p><b>Plazo:</b> {{ cotizacion.plazo }}</p>
+    <p><b>Mensualidad:</b> {{ cotizacion.mensualidad | currency:'USD' }}</p>
+    <p><b>Pago Inicial:</b> {{ cotizacion.pagoInicial | currency:'USD' }}</p>
+    <p><b>Monto a financiar:</b> {{ cotizacion.montoFinanciar | currency:'USD' }}</p>
+    <button (click)="borrarCotizacion(i)">Borrar</button>
+  </div>
+  <hr />
+</div>
+
 <app-footer></app-footer>
