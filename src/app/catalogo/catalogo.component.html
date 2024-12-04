@@ -22,6 +22,7 @@
                 <button class="btn" (click)="redirectToPage(car2)">Adquirir</button>
             </div>
         </div>
+
         <div class="column">
             <div class="content">
                 <img id="carImage3" [src]="car3.imagen" style="width: 100%" />
@@ -31,16 +32,17 @@
                 <button class="btn" (click)="redirectToPage(car3)">Adquirir</button>
             </div>
         </div>
+
         <div class="column">
             <div class="content">
-                <img id="carImage3" [src]="car3.imagen" style="width: 100%" />
+                <img id="carImage4" [src]="car3.imagen" style="width: 100%" />
                 <h4>{{ car4.marca }}</h4> 
                 <p><b>Precio:</b> <span>{{ car4.precio | currency }}</span></p>
                 <p><b>Año:</b> <span>{{ car4.anio }}</span></p>
                 <button class="btn" (click)="redirectToPage(car4)">Adquirir</button>
             </div>
         </div>
-        <!-- Puedes seguir con los otros autos de la misma forma -->
+
     </div>
 </section>
 <br>

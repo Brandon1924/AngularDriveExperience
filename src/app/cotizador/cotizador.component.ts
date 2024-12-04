@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CotizacionService } from '../services/cotizacion.service';  // Asegúrate de tener la ruta correcta
-
+import { AuthService } from '../services/auth.service'; // Servicio de autenticación
 
 @Component({
   selector: 'app-cotizador',
@@ -24,8 +24,18 @@ export class CotizadorComponent {
 
   financiarSeguro: string = 'no'; // Para saber si el seguro será financiado
 
-  // Constructor que recibe el auto pasado por queryParams
-  constructor(private route: ActivatedRoute, private cotizacionService: CotizacionService) {
+  // Constructor que recibe el auto pasado por queryParams y verifica si el usuario está autenticado
+  constructor(
+    private route: ActivatedRoute,
+    private cotizacionService: CotizacionService,
+    private router: Router,
+    private authService: AuthService // Servicio de autenticación
+  ) {
+    // Verifica si el usuario está autenticado, si no lo está, redirige al login
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']);  // Redirige al login si no está autenticado
+    }
+
     this.route.queryParams.subscribe(params => {
       this.auto = {
         id: params['id'],
@@ -114,23 +124,23 @@ export class CotizadorComponent {
   }
 
   guardarCotizacion(): void {
-  const cotizacion = {
-    auto: this.auto,
-    enganche: this.enganche,
-    plazo: this.plazo,
-    montoFinanciar: this.montoFinanciar,
-    pagoInicial: this.pagoInicial,
-    comisionApertura: this.comisionApertura,
-    seguroContado: this.seguroContado,
-    tasaInteres: this.tasaInteres,
-    plazoLabel: this.plazoLabel,
-    mensualidad: this.mensualidad
-  };
+    const cotizacion = {
+      auto: this.auto,
+      enganche: this.enganche,
+      plazo: this.plazo,
+      montoFinanciar: this.montoFinanciar,
+      pagoInicial: this.pagoInicial,
+      comisionApertura: this.comisionApertura,
+      seguroContado: this.seguroContado,
+      tasaInteres: this.tasaInteres,
+      plazoLabel: this.plazoLabel,
+      mensualidad: this.mensualidad
+    };
 
-  // Guardar la cotización usando el servicio
-  this.cotizacionService.guardarCotizacion(cotizacion);
+    // Guardar la cotización usando el servicio
+    this.cotizacionService.guardarCotizacion(cotizacion);
 
-  // Mostrar mensaje de éxito
-  alert('Cotización guardada exitosamente');
+    // Mostrar mensaje de éxito
+    alert('Cotización guardada exitosamente');
   }
 }

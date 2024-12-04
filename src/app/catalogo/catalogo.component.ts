@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -14,16 +15,17 @@ export class CatalogoComponent {
   car3 = { id: 3, marca: 'Auto3', precio: 320000, anio: 2021, imagen: '../../../../assets/images/auto3.png'};
   car4 = { id: 3, marca: 'Auto4', precio: 120000, anio: 2021, imagen: '../../../../assets/images/auto4.png'};
   
-  constructor(private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  redirectToPage(car : any) {
-    this.router.navigate(['/cotizador'], { queryParams: { 
-      id: car.id, 
-      marca: car.marca, 
-      precio: car.precio, 
-      anio: car.anio,
-      imagen: car.imagen // Asegurándote de pasar la imagen correctamente
-    } });
+  // Método que se ejecuta cuando el usuario hace clic en "Adquirir"
+  redirectToPage(vehicle: any): void {
+    if (!this.authService.isAuthenticated()) {
+      // Si el usuario no está autenticado, redirige al login
+      this.router.navigate(['/login']);
+    } else {
+      // Si está autenticado, redirige al cotizador pasando el id del vehículo
+      this.router.navigate(['/cotizador'], { queryParams: { id: vehicle.id } });
+    }
   }
 
   ngOnInit(): void {
