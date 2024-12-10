@@ -16,7 +16,7 @@ import { CotizadorComponent } from './cotizador/cotizador.component';
 import { RegistroComponent } from './registro/registro.component';
 import { PlanesComponent } from './planes/planes.component';
 import { CotizacionService } from './services/cotizacion.service';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { CotizacionService } from './services/cotizacion.service';
     RouterModule.forRoot([]),
     CheckboxModule,
     ButtonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [CotizacionService],
   bootstrap: [AppComponent]
